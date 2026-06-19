@@ -1,0 +1,21 @@
+[package]
+name = "luminarwa-protocol"
+version = "1.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+soroban-sdk = { version = "21.4", features = ["contract"] }
+crypto-bigint = "0.5"
+
+[dev-dependencies]
+soroban-sdk = { version = "21.4", features = ["contract", "testutils"] }
+
+[profile.release]
+opt-level = "z"
+strip = true
+lto = true
+codegen-units = 1
